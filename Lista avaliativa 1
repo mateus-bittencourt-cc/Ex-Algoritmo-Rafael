@@ -64,7 +64,6 @@ int main() {
                 } else {
                     novoArtista.albums = NULL;
                 }
-
                 inserirArtista(&artistas, &numArtistas, novoArtista);
                 break;
             }
@@ -124,12 +123,9 @@ int main() {
             free(artistas[i].albums);
         }
     }
-
     free(artistas);
-
     return 0;
 }
-
 void lerArtistas(char *nomeArquivo, Artista **lista, int *numArtistas) {
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
@@ -181,8 +177,6 @@ void lerArtistas(char *nomeArquivo, Artista **lista, int *numArtistas) {
 
     fclose(arquivo);
 }
-
-
 void imprimirArtistas(Artista *lista, int numArtistas) {
     for (int i = 0; i < numArtistas; i++) {
         printf("Nome: %s\n", lista[i].nome);
@@ -195,7 +189,6 @@ void imprimirArtistas(Artista *lista, int numArtistas) {
         printf("==========\n");
     }
 }
-
 void inserirArtista(Artista **lista, int *numArtistas, Artista novoArtista) {
     if (*numArtistas == 0) {
         *lista = (Artista *)malloc(sizeof(Artista));
@@ -218,7 +211,6 @@ void inserirArtista(Artista **lista, int *numArtistas, Artista novoArtista) {
     (*lista)[indiceInsercao] = novoArtista;
     (*numArtistas)++;
 }
-
 void removerArtista(Artista **lista, int *numArtistas, char *nome) {
     int indiceRemocao = -1;
     for (int i = 0; i < *numArtistas; i++) {
@@ -227,7 +219,6 @@ void removerArtista(Artista **lista, int *numArtistas, char *nome) {
             break;
         }
     }
-
     if (indiceRemocao != -1) {
         free((*lista)[indiceRemocao].albums);
         for (int i = indiceRemocao; i < *numArtistas - 1; i++) {
@@ -240,7 +231,6 @@ void removerArtista(Artista **lista, int *numArtistas, char *nome) {
         printf("Artista não encontrado.\n");
     }
 }
-
 void editarArtista(Artista *lista, int numArtistas, char *nome) {
     int indiceEdicao = -1;
     for (int i = 0; i < numArtistas; i++) {
@@ -249,7 +239,6 @@ void editarArtista(Artista *lista, int numArtistas, char *nome) {
             break;
         }
     }
-
     if (indiceEdicao != -1) {
         printf("Novo nome: ");
         fgets(lista[indiceEdicao].nome, sizeof(lista[indiceEdicao].nome), stdin);
@@ -262,7 +251,7 @@ void editarArtista(Artista *lista, int numArtistas, char *nome) {
         lista[indiceEdicao].local[strcspn(lista[indiceEdicao].local, "\n")] = '\0';
         printf("Número de álbuns: ");
         scanf("%d", &lista[indiceEdicao].num_albums);
-        getchar(); // Limpa o buffer do teclado
+        getchar();
 
         if (lista[indiceEdicao].num_albums > 0) {
             for (int i = 0; i < lista[indiceEdicao].num_albums; i++) {
@@ -279,7 +268,6 @@ void editarArtista(Artista *lista, int numArtistas, char *nome) {
         printf("Artista não encontrado.\n");
     }
 }
-
 int buscarArtistaBinario(Artista *lista, int numArtistas, char *nome) {
     int inicio = 0;
     int fim = numArtistas - 1;
@@ -296,10 +284,8 @@ int buscarArtistaBinario(Artista *lista, int numArtistas, char *nome) {
             fim = meio - 1;
         }
     }
-
     return -1;
 }
-
 void buscarAlbumSequencial(Artista *lista, int numArtistas, char *album) {
     int encontrados = 0;
     for (int i = 0; i < numArtistas; i++) {
@@ -313,7 +299,6 @@ void buscarAlbumSequencial(Artista *lista, int numArtistas, char *album) {
             }
         }
     }
-
     if (encontrados == 0) {
         printf("Nenhum album encontrado com o nome '%s'.\n", album);
     }
