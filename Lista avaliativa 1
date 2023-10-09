@@ -108,7 +108,7 @@ int main() {
                 break;
             }
             case 6:
-                printf("Saindo...\n");
+                printf("Saiu\n");
                 break;
             default:
                 printf("Opção inválida!\n");
