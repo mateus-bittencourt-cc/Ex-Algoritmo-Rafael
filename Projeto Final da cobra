@@ -230,7 +230,8 @@ void jogarCobrinha(int nivel){
             	break;
         }
 
-if(PontoPX==cobraX[0]&&PontoPY==cobraY[0]){   
+if(PontoPX==cobraX[0]&&PontoPY==cobraY[0])
+	{   
     	    comprimento++; 													
             pontuacao++; 															
             PontoPX=(rand()%37)+1;										
