@@ -131,3 +131,27 @@ void limitesMatriz(void){
 		printf("\n");
 	}	
 }
+
+void mostrarGameOver(int pontuacao){ 
+
+	FILE *arquivo = fopen("recordes.txt", "a"); 
+
+	if(arquivo!=NULL){
+		fprintf(arquivo, "\n %03dP - %s", pontuacao,jogador);
+		fclose(arquivo);
+	}else{
+		printf("Sem recordes!\n");
+	}
+
+	Sleep(600);
+	limitesMatriz();
+	irColunaLinha(4,4);
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	irColunaLinha(10,5);
+	printf("F I M  D E  J O G O");
+	irColunaLinha(4,6);
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	getch();
+	system("cls");
+	generateMenu(0);	
+}
