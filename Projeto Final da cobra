@@ -178,3 +178,27 @@ void jogarCobrinha(int nivel){
     cobraY[0] = (rand()%10)+1;
     irColunaLinha(cobraX[0],cobraY[0]);
     printf("%c",'O');
+
+    ch = get_code();
+ 	while (ch != KEY_ESC ){
+ 		
+ 		int i;
+ 		for (i = 0; i < 37; ++i)
+ 		{
+ 			irColunaLinha(i,12);
+ 			printf(" ");
+ 		}
+
+        if(
+        	(cobraY[0]==0)||
+        	(cobraY[0]==12)||
+        	(cobraX[0]==0)||
+        	(cobraX[0]==38)
+        	)
+        {
+        	mostrarGameOver(pontuacao);
+        } 		
+		for(i=comprimento; i>0; i--){   
+        	cobraX[i]=cobraX[i-1];
+            	cobraY[i]=cobraY[i-1];
+        }
