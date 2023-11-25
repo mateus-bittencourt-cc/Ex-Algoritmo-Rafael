@@ -73,18 +73,61 @@ void generateMenu(int choice){
         			jogarCobrinha(1);
         			break;
         		case 1:
-        			olharRecordes();
+        			OlharRecordes();
         			break;
         		case 2:
-        			tutorial();
+        			Tutorial();
         			break;
         		case 3:
         			printf("Saindo");
         			exit(0);
         			break;
-
         	}
         	break;
         }
     }	   
+}
+void irColunaLinha(int coluna, int linha)
+{
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),(COORD) {
+        coluna,linha
+    });
+}
+
+// Estrutura para inserir o nome do player e carregamento do jogo
+void carregando(){
+	int i;
+	system("cls");
+	printf("Nome do player\n");
+	scanf("%[^\n]s", &jogador);
+	system("cls");
+	printf("Carregando\n");
+	char load[11] = "carregando";
+	for (i = 0; i < 11; ++i)
+	{
+		printf("%c ",load[i]);
+		Sleep(((rand() % 100) + 350));
+	}
+	printf("...\nCarregamento terminou\n");
+	sleep(1);
+	printf("Inicializando");
+	system("cls");
+}
+void limitesMatriz(void){
+	int i, j;
+	system("cls");
+	int matriz[12][39];
+
+	for (i = 0; i < 12; ++i)
+	{
+		for (j = 0; j < 39; ++j)
+		{
+			if((j==0) || (i==0) || (i==11) || (j==38)){
+				printf("|");
+			}else{
+				printf(" ");
+			}
+		}
+		printf("\n");
+	}	
 }
