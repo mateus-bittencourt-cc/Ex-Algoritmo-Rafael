@@ -236,3 +236,9 @@ if(PontoPX==cobraX[0]&&PontoPY==cobraY[0]){
             PontoPX=(rand()%37)+1;										
             PontoPY=(rand()%10)+1;
         }        
+
+        irColunaLinha(cobraX[0],cobraY[0]);
+        printf("%c",'O'); 
+
+	    irColunaLinha(0,12);
+	    printf("Pontos: %d - %s", pontuacao,jogador);
