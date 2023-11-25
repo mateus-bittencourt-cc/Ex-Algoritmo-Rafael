@@ -1,1 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <conio.h>
+#include <unistd.h>
+#include <time.h>
+#include <windows.h>
 
+char player[30];
+
+enum
+{
+KEY_ESC     = 27,
+KEY_ENTER   = 13,
+ARROW_UP    = 256 + 72,
+ARROW_LEFT  = 256+75,
+ARROW_RIGHT = 256 + 77
+};
