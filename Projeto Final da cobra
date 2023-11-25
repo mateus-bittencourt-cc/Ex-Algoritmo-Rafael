@@ -229,3 +229,10 @@ void jogarCobrinha(int nivel){
             	ch = get_code();
             	break;
         }
+
+if(PontoPX==cobraX[0]&&PontoPY==cobraY[0]){   
+    	    comprimento++; 													
+            pontuacao++; 															
+            PontoPX=(rand()%37)+1;										
+            PontoPY=(rand()%10)+1;
+        }        
