@@ -202,3 +202,30 @@ void jogarCobrinha(int nivel){
         	cobraX[i]=cobraX[i-1];
             	cobraY[i]=cobraY[i-1];
         }
+
+	// Apaga o rastro da cobra
+        irColunaLinha(cobraX[comprimento],cobraY[comprimento]);
+        printf(" "); 
+
+        if(kbhit()){
+        	ch = get_code();        
+        }
+
+        // Verifica o código da tecla que foi pressionada para fazer a ação correta
+        switch ((int) ch){
+	        case ARROW_UP:
+	        	cobraY[0]--;
+	            break;
+	        case ARROW_DOWN:
+	        	cobraY[0]++;
+	            break;
+	        case ARROW_LEFT:
+	        	cobraX[0]--;
+	            break;
+	        case ARROW_RIGHT:
+	        	cobraX[0]++;
+	            break;
+            default:
+            	ch = get_code();
+            	break;
+        }
