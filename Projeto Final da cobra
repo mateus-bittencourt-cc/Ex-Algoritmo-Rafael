@@ -243,3 +243,21 @@ if(PontoPX==cobraX[0]&&PontoPY==cobraY[0])
 
 	    irColunaLinha(0,12);
 	    printf("Pontos: %d - %s", pontuacao,jogador);
+
+Sleep(300);
+        // Verifica se a cobra bateu nela mesma
+        for(i=1; i<comprimento; i++) {
+            if(cobraX[0]==cobraX[i]&&cobraY[0]==cobraY[i]){
+				mostrarGameOver(pontuacao);
+            }
+        }
+
+        // Indo para a posiÃ§Ã£o para imprimir o proximo ponto
+        irColunaLinha(PontoPX,PontoPY);
+        printf("%c",'+');
+    }	
+
+	getch();
+	system("cls");
+	generateMenu(0);		
+}
