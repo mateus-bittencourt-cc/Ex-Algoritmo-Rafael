@@ -16,3 +16,75 @@ ARROW_UP    = 256 + 72,
 ARROW_LEFT  = 256+75,
 ARROW_RIGHT = 256 + 77
 };
+
+char menus[5][1000] = {
+        "Jogar",
+        "Recordes",
+        "Tutorial",
+        "Sair"};
+
+static int get_code(void);
+void tutorial(void);
+void jogarCobrinha(int nivel);
+void olharRecordes(void);
+void generateMenu(int choice);
+void generateMenu(int choice){
+    int count;
+    printf("\n\n\n);
+    for (count=0;count<4;count++){
+          if(choice==count){
+              printf("\t[*] %s\n",menus[count]);
+          }else{
+              printf("\t[ ] %s\n",menus[count]);
+          }
+    }
+
+    SMALL_RECT windowSize = {0 , 0 , 39 , 12};
+    SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &windowSize);
+
+    int ch;
+
+    while (( ch = get_code()) != KEY_ESC ){
+        switch (ch)
+        {
+        case ARROW_UP:
+            system("cls");
+            if(choice>0){
+            	choice=choice-1;
+            }
+            generateMenu(choice);
+            break;
+        case ARROW_DOWN:
+            system("cls");
+            if(choice<3){
+            	choice=choice+1;
+            }
+            generateMenu(choice);
+            break;
+        case ARROW_LEFT:
+            printf("LEFT\n");
+            break;
+        case ARROW_RIGHT:
+            printf("RIGHT\n");
+            break;
+        case KEY_ENTER:
+        	switch(choice){
+        		case 0:
+        			jogarCobrinha(1);
+        			break;
+        		case 1:
+        			olharRecordes();
+        			break;
+        		case 2:
+        			tutorial();
+        			break;
+        		case 3:
+        			printf("Saindo");
+        			exit(0);
+        			break;
+
+        	}
+        	break;
+        }
+    }	   
+}
