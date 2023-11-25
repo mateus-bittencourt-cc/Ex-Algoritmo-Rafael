@@ -155,3 +155,26 @@ void mostrarGameOver(int pontuacao){
 	system("cls");
 	generateMenu(0);	
 }
+
+void jogarCobrinha(int nivel){
+	int cobraX[38*13] = {}; 				
+	int cobraY[13*38] = {}; 				
+	int PontoPX,PontoPY; 					
+	int i, comprimento = 15; 				
+	int pontuacao = 1; 						
+	int ch; 								
+	int velocidade = 300;  					
+	char teclou; 						
+	loading();
+	limitesMatriz();
+
+    PontoPX=(rand()%37)+1;
+    PontoPY=(rand()%10)+1;	
+
+    irColunaLinha(0,12);
+    printf("Aperte uma tecla para iniciar");
+
+    cobraX[0] = (rand()%37)+1;
+    cobraY[0] = (rand()%10)+1;
+    irColunaLinha(cobraX[0],cobraY[0]);
+    printf("%c",'O');
